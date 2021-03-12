@@ -110,5 +110,56 @@ function init(){
 }
 
 
-// *********** BACKGROUND ANIMATION IN SECTION SELECTED*******
+// ============================== PORTFOLIO ======================
 
+// **************** slide
+document.addEventListener('DOMContentLoaded', setBackground)
+
+let numberImgs = 4
+let indexValue= 1;
+let indexLoop = 1
+
+
+const sectionPortfolio = document.querySelector('#portfolio')
+
+function setBackground(){
+
+    if(indexValue > numberImgs) indexValue=1 
+    if(indexValue <= 0) indexValue = 1
+
+    sectionPortfolio.style.backgroundImage = `linear-gradient(rgba(17, 17, 19,85%), rgba(17, 17, 19,95%) ),url('./images/project${indexValue}.png')`
+}
+
+
+changeBackground = () =>{
+    indexLoop++
+    if(indexLoop > numberImgs) indexLoop=1
+
+
+    indexValue = indexLoop
+    setBackground()
+    btnSlideStyle()
+
+}
+
+
+function btnSlideStyle(){
+    const btnSlides = document.querySelectorAll('.btn-slider span')
+
+
+    btnSlides[indexValue - 1].classList.add('current')
+    // btnSlides[indexValue - 2].classList.remove('current')
+
+    
+}
+
+
+// setInterval(changeBackground, 5000)
+
+
+
+//altern slide by click on btn-circle 
+btn_slide = index=> setBackground(indexValue = index)
+
+// altern slide by click on arrows 
+side_slide = index => setBackground(indexValue+= index)

@@ -62,9 +62,9 @@
             <div class="about-container">
 
                 <div class="informations-container">
-                <h1 class="section-title">Sobre</h1>
+                <h2 class="section-title about-title">Sobre</h2>
 
-                <div class="text-section">
+                <div class="text-section text-about">
                 <p>Olá, meu nome é <strong class='strong-text'>André Luís Lorini Canton</strong>,tenho <strong class="strong-text">17 anos</strong>, moro no Rio Grande do Sul (Brasil) e sou <strong class="strong-text txt-type" data-wait=2000 data-words='["estudante de desenvolvimento web.", "desenvolvedor júnior.", "amante de tecnologia."]'></strong></p>
 
             </div><!--text-section-->
@@ -74,7 +74,37 @@
             </div><!--about container-->
 
         </div>
-     </section>
+     </section><!--about-->
+
+     <section class="portfolio" id="portfolio">
+         <div class="container">
+             <div class="portfolio-container">
+               
+
+                <div class="content-portfolio">
+                <h2 class="section-title portfolio-title">Portfólio</h2>
+                
+                <!-- <div class="text-section"> -->
+                    <p class='text-section'>Alguns projetos que desenvolvi!</p>
+                <!-- </div>text-section -->
+                
+                <div class="btn-slider">
+                    <span class='current'onclick="btn_slide(1)"></span>
+                    <span onclick="btn_slide(2)"></span>
+                    <span onclick="btn_slide(3)"></span>
+                    <span onclick="btn_slide(4)"></span>
+                </div>
+                
+
+            </div><!--content-portfolio-->
+
+            <div class="side left" onclick="side_slide(-1)"><span><i class="far fa-arrow-alt-circle-left"></i></span></div>
+            <div class="side right" onclick="side_slide(1)"><span><i class="far fa-arrow-alt-circle-right"></i></span></div>
+
+
+             </div><!--portfolio-container-->
+         </div><!--container-->
+     </section><!--portfolio-->
 
 
 
