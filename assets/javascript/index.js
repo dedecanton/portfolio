@@ -113,53 +113,73 @@ function init(){
 // ============================== PORTFOLIO ======================
 
 // **************** slide
-document.addEventListener('DOMContentLoaded', setBackground)
+document.addEventListener('DOMContentLoaded', ()=>{
+    changeBackground()
+})
 
 let numberImgs = 4
 let indexValue= 1;
 let indexLoop = 1
+const namesProjects = [
+    'Landing page Easybank',
+    'Landing page for Christmas',
+    'Landing page portfolio not-real',
+    'Formulary challange FreeCodeCamp'
+]
 
+const linksProjects = [
+    'https://dedecanton.github.io/easybank-landing-page/',
+    'http://dedecanton.github.io/christmas-landing-page/',
+    'https://dedecanton.github.io/portfolio-landing-page1/',
+    'https://codepen.io/dedecanton/full/XWNPMGW'
+]
 
 const sectionPortfolio = document.querySelector('#portfolio')
 
-function setBackground(){
+
+
+
+changeBackground = () =>{
 
     if(indexValue > numberImgs) indexValue=1 
     if(indexValue <= 0) indexValue = 1
 
-    sectionPortfolio.style.backgroundImage = `linear-gradient(rgba(17, 17, 19,85%), rgba(17, 17, 19,95%) ),url('./images/project${indexValue}.png')`
-}
-
-
-changeBackground = () =>{
-    indexLoop++
-    if(indexLoop > numberImgs) indexLoop=1
-
-
-    indexValue = indexLoop
-    setBackground()
-    btnSlideStyle()
+    setBackground(indexValue)
+    btnSlideStyle(indexValue)
+    showProjectDatas(indexValue)
 
 }
 
+function setBackground(index){
+    sectionPortfolio.style.backgroundImage = `linear-gradient(rgba(17, 17, 19,85%), rgba(17, 17, 19,95%) ),url('./images/project${index}.png')`   
+}
 
-function btnSlideStyle(){
+function btnSlideStyle(index){
     const btnSlides = document.querySelectorAll('.btn-slider span')
-
-
-    btnSlides[indexValue - 1].classList.add('current')
-    // btnSlides[indexValue - 2].classList.remove('current')
-
-    
+    btnSlides.forEach(element => element.classList.remove('current'))
+    btnSlides[index - 1].classList.add('current')
 }
 
+function showProjectDatas(index){
+    const h3ProjectName = document.querySelector('.project-name a')
+    h3ProjectName.innerText = namesProjects[index - 1]
+    h3ProjectName.setAttribute('href', linksProjects[index - 1])
 
-// setInterval(changeBackground, 5000)
+}
 
+function loopSlider(){
+    indexValue++
+    if(indexValue > numberImgs) indexValue = 1
+    changeBackground()
+}
 
 
 //altern slide by click on btn-circle 
-btn_slide = index=> setBackground(indexValue = index)
+btn_slide = index=> changeBackground(indexValue = index) 
 
 // altern slide by click on arrows 
-side_slide = index => setBackground(indexValue+= index)
+side_slide = index => changeBackground(indexValue += index)
+
+
+
+setInterval(loopSlider, 5000)

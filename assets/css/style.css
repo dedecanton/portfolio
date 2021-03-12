@@ -26,9 +26,11 @@
     --small-line-height: 50px;
 
     --row-gap: 50px;
+    --small-row-gap: 30px;
 
     --width-button: 200px;
 
+    --width-btn-slider: 30%;
 
 }
 
@@ -278,11 +280,19 @@ section{
     justify-items: center;
     justify-content: center;
     position: relative;
-    row-gap: 30px;
+    row-gap: var(--small-row-gap);
+}
+
+.project-name{
+    font-size: var(--large-font-size);
+}
+
+.project-name a{
+    color: var(--blue-light);
 }
 
 .btn-slider{
-    width: 20%;
+    width: var(--width-btn-slider);
     display: flex;
     justify-content: space-between;
 }
@@ -312,7 +322,7 @@ section{
 .side span{
     padding: 10px;
     color: var(--white);
-    font-size: 80px;
+    font-size: var(--large-font-size);
     transition: all .3s ease;
 }
 
@@ -407,6 +417,8 @@ section{
     :root{
         --small-title:2rem;
         --medium-title: 2.3rem;
+
+        --width-btn-slider: 35%;
 
         }
 }
