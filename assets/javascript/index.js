@@ -149,7 +149,7 @@ changeBackground = (viewport) =>{
 
 
 function setBackground(index,viewport){
-    sectionPortfolio.style.backgroundImage = `linear-gradient(rgba(17, 17, 19,85%), rgba(17, 17, 19,95%) ),url('./images/project${index}-${viewport}.png')`   
+    sectionPortfolio.style.backgroundImage = `linear-gradient(rgba(17, 17, 19,85%), rgba(17, 17, 19,95%) ),url('./assets/images/project${index}-${viewport}.png')`   
 }
 
 function btnSlideStyle(index){
