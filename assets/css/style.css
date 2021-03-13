@@ -10,16 +10,18 @@
     --black: #000000;
     --dark-blue: #040821;
 
+    --very-small-font-size: 1.1rem ;
     --small-font-size: 1.2rem;
     --medium-font-size:1.5rem;
     --large-font-size:1.8rem;
+    --very-large-font-size: 2.3rem;
 
 
     --small-title:3rem;
     --medium-title: 3.5rem;
 
 
-    --small-padding: 15px 0;
+    --small-padding: 15px;
     --medium-padding: 30px 0;
     --small-padding-bottom:.8rem;
 
@@ -29,8 +31,12 @@
     --small-row-gap: 30px;
 
     --width-button: 200px;
+    --width-social: 300px;
 
     --width-btn-slider: 30%;
+
+    --side-font-size: 50px;
+    --side-top: 50%;
 
 }
 
@@ -175,7 +181,7 @@ section{
     color: var(--blue-light);
 }
 
-.button-home{
+.button{
     width: var(--width-button);
     padding: 1rem;
     border-radius: 1rem;
@@ -187,7 +193,7 @@ section{
     transition: all .3s ease;
 }
 
-.button-home:hover{
+.button:hover{
     background: var(--blue-light);
     color: var(--white);
     transform: scale(1.2);
@@ -254,7 +260,7 @@ section{
     background-color: black;
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: top; 
+    background-position: center; 
     
 }
 
@@ -285,6 +291,7 @@ section{
 
 .project-name{
     font-size: var(--large-font-size);
+    text-align: center;
 }
 
 .project-name a{
@@ -307,7 +314,7 @@ section{
 
 .side{
     position: absolute;
-    top: 50%;
+    top: var(--side-top);
 }
 
 .left{
@@ -322,7 +329,7 @@ section{
 .side span{
     padding: 10px;
     color: var(--white);
-    font-size: var(--large-font-size);
+    font-size: var(--side-font-size);
     transition: all .3s ease;
 }
 
@@ -332,6 +339,54 @@ section{
 
 .btn-slider .current{
     background: var(--blue-light);
+}
+
+
+/* =================== CONTACT ============== */
+.contact-container{
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    height: 100vh;
+    color: var(--blue-light);
+    row-gap: var(--row-gap);
+}
+
+.social-container{
+    width: 100%;
+    display: grid;
+    justify-items: center;
+    
+    row-gap: var(--small-row-gap);
+}
+
+.social-box{
+    width: var(--width-social);
+    border: 3px solid var(--blue-light);
+    font-size: var(--very-large-font-size);
+    border-radius: 30px;
+    text-align: center;
+}
+
+
+/* ================= FOOTER ================ */
+
+.footer{
+    width: 100%;
+    padding: var(--small-padding);
+    background: var(--dark-blue);
+    padding: var(--medium-padding);
+}
+
+.footer-text{
+    font-size: var(--very-small-font-size);
+    color: var(--white);
+}
+
+.footer-container{
+    display: grid;
+    justify-content: center;
+    justify-items: center;
 }
 
 /* =================== MEDIA ============= */
@@ -344,8 +399,10 @@ section{
         --small-font-size: 2rem;
         --medium-font-size:2.5rem;
         --large-font-size:3rem;
+        /* --very-large-font-size: 3.5rem; */
 
         --width-button: 300px;
+        --wdith-social: 400px;
 
     }
 }
@@ -360,6 +417,7 @@ section{
     --small-font-size: 1rem;
     --medium-font-size:1.2rem;
     --large-font-size:1.5rem;
+    --very-large-font-size: 3rem
 
     --row-gap: 20px;
 
@@ -419,6 +477,11 @@ section{
         --medium-title: 2.3rem;
 
         --width-btn-slider: 35%;
+
+        --side-font-size: 30px;
+        --side-top: 60%;
+
+        --width-social: 200px;
 
         }
 }

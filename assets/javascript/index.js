@@ -114,24 +114,22 @@ function init(){
 
 // **************** slide
 document.addEventListener('DOMContentLoaded', ()=>{
-    changeBackground()
+    changeBackground(getViewport())
 })
 
-let numberImgs = 4
+let numberImgs = 3
 let indexValue= 1;
 let indexLoop = 1
 const namesProjects = [
     'Landing page Easybank',
     'Landing page for Christmas',
     'Landing page portfolio not-real',
-    'Formulary challange FreeCodeCamp'
 ]
 
 const linksProjects = [
     'https://dedecanton.github.io/easybank-landing-page/',
     'http://dedecanton.github.io/christmas-landing-page/',
     'https://dedecanton.github.io/portfolio-landing-page1/',
-    'https://codepen.io/dedecanton/full/XWNPMGW'
 ]
 
 const sectionPortfolio = document.querySelector('#portfolio')
@@ -139,19 +137,19 @@ const sectionPortfolio = document.querySelector('#portfolio')
 
 
 
-changeBackground = () =>{
+changeBackground = (viewport) =>{
 
     if(indexValue > numberImgs) indexValue=1 
     if(indexValue <= 0) indexValue = 1
 
-    setBackground(indexValue)
+    setBackground(indexValue,viewport)
     btnSlideStyle(indexValue)
     showProjectDatas(indexValue)
-
 }
 
-function setBackground(index){
-    sectionPortfolio.style.backgroundImage = `linear-gradient(rgba(17, 17, 19,85%), rgba(17, 17, 19,95%) ),url('./images/project${index}.png')`   
+
+function setBackground(index,viewport){
+    sectionPortfolio.style.backgroundImage = `linear-gradient(rgba(17, 17, 19,85%), rgba(17, 17, 19,95%) ),url('./images/project${index}-${viewport}.png')`   
 }
 
 function btnSlideStyle(index){
@@ -170,15 +168,31 @@ function showProjectDatas(index){
 function loopSlider(){
     indexValue++
     if(indexValue > numberImgs) indexValue = 1
-    changeBackground()
+    changeBackground(getViewport())
+    
+    
+}
+
+// get the width viewport of the user
+function getViewport(){
+    let windowWigth = window.innerWidth
+    return windowWigth <= 690 ? 'mobile' : windowWigth <= 1366 ? 'wide' : 'ultrawide'
+    
 }
 
 
 //altern slide by click on btn-circle 
-btn_slide = index=> changeBackground(indexValue = index) 
+btn_slide = index=> {
+    indexValue = index;
+    changeBackground(getViewport())
+
+} 
 
 // altern slide by click on arrows 
-side_slide = index => changeBackground(indexValue += index)
+side_slide = index =>{
+    indexValue += index;
+    changeBackground(getViewport())
+}
 
 
 
