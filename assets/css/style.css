@@ -381,6 +381,8 @@ section{
 .footer-text{
     font-size: var(--very-small-font-size);
     color: var(--white);
+    text-align: center;
+    margin: 5px;
 }
 
 .footer-container{
